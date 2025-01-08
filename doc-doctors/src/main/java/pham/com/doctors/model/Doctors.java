@@ -29,13 +29,6 @@ public class Doctors {
 
     private boolean is_active;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFname() {
         return fname;
@@ -69,7 +62,7 @@ public class Doctors {
         this.specialization = specialization;
     }
 
-    public boolean getIs_active() {
+    public boolean isIs_active() {
         return is_active;
     }
 

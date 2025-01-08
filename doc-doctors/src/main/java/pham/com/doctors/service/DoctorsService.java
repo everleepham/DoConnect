@@ -33,7 +33,7 @@ public class DoctorsService {
             logger.info("Found {} doctors", allDoctors.size());
         }
         return allDoctors.stream()
-                .filter(Doctors::getIs_active)
+                .filter(Doctors::isIs_active)
                 .map(this::toDTO).toList();
     }
 
@@ -110,7 +110,7 @@ public class DoctorsService {
                     logger.warn("Doctor with ID {} not found", id);
                     return new ResourceNotFoundException("Doctor not found");
                 });
-        existingDoc.setIs_active(doctorsDTO.getIs_active());
+        existingDoc.setIs_active(doctorsDTO.isIs_active());
         logger.info("Doctor's status with ID {} has been updated successfully", id);
         return toDTO(doctorsRepository.save(existingDoc));
     }
@@ -118,12 +118,11 @@ public class DoctorsService {
     private DoctorsDTO toDTO(Doctors entity) {
         logger.info("Converting doctor {} to DTO", entity);
         DoctorsDTO dto = new DoctorsDTO();
-        dto.setId(entity.getId());
         dto.setFname(entity.getFname());
         dto.setLname(entity.getLname());
         dto.setEmail(entity.getEmail());
         dto.setSpecialization(entity.getSpecialization());
-        dto.setIs_active(entity.getIs_active());
+        dto.setIs_active(entity.isIs_active());
         logger.info("Converted doctor {} to DTO", dto);
         return dto;
 
@@ -132,11 +131,11 @@ public class DoctorsService {
     private Doctors toEntity(DoctorsDTO dto) {
         logger.info("Converting Doctors to Entity {}", dto);
         Doctors entity = new Doctors();
-        entity.setId(dto.getId());
+        entity.setFname(dto.getFname());
         entity.setLname(dto.getLname());
         entity.setEmail(dto.getEmail());
         entity.setSpecialization(dto.getSpecialization());
-        entity.setIs_active(dto.getIs_active());
+        entity.setIs_active(dto.isIs_active());
         logger.info("Converted Doctors to Entity {}", entity);
         return entity;
     }

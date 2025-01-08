@@ -4,23 +4,13 @@ import pham.com.doctors.model.Specialization;
 import jakarta.validation.constraints.*;
 
 public class DoctorsDTO {
-
+    @NotNull
     private Long id;
 
-    @NotNull(message = "First name required")
     private String fname;
-
-    @NotNull(message = "Last name required")
     private String lname;
-
-    @NotNull(message = "Email required")
-    @Email(message = "Email should be valid")
     private String email;
-
-    @NotNull(message = "Specialization is required")
     private Specialization specialization;
-
-    @NotNull(message = "Status is required")
     private boolean is_active;
 
     // Getter Setter
@@ -65,7 +55,7 @@ public class DoctorsDTO {
         this.specialization = specialization;
     }
 
-    public boolean getIs_active() {
+    public boolean isIs_active() {
         return is_active;
     }
 

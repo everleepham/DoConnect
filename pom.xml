@@ -23,9 +23,9 @@
 	</developers>
     <modules>
         <module>doc-doctors</module>
-		<module>doc-appointments</module>
 		<module>doc-patients</module>
 		<module>application</module>
+		<module>doc-appointments</module>
 	</modules>
     <scm>
 		<connection/>
